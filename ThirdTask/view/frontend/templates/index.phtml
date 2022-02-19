@@ -1,4 +1,5 @@
-<!--<div id="getting-started"></div>
+<div id="getting-started"></div>
+<h2>
 <script type="text/javascript">
     require([
         'jquery',
@@ -7,13 +8,13 @@
         $, countdown
     ) {
         jQuery("#getting-started")
-            .countdown("<?php /*$block->getSpecialDate() */?>", function(event) {
+            .countdown("<?php echo min($block->getSpecialDate(), $block->getRuleDate(2), $block->getRuleDate(3))?>", function(event) {
                 jQuery(this).text(
                     event.strftime('%D Days %H:%M:%S')
                 );
             });
     });
-</script>-->
+</script></h2>
 
 <?php
 if($block->getSpecialEnable()) echo 'Special Price: ' . $block->getSpecialDate() . '<br>';
